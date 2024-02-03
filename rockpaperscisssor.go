@@ -37,14 +37,23 @@ func main(){
 		}
 
 	}
-	computerInput := rand.Intn(3) + 1 // rand.Intn returns a random number between 0 and n-1 so we add 1 to get 
+	computerInput := rand.Intn(3) // rand.Intn returns a random number 
 
 	var result string
 	if userInput == Rock && computerInput == Scissor{
 		result = "Congratulations! You Win!"
+	}else if userInput == Paper && computerInput == Rock{
+		result = "Congratulations! You Win!"
+	}else if userInput == Scissor && computerInput == Paper{
+		result = "Congratulations! You Win!"
+	}else if userInput == computerInput{
+		result = "It's a Tie!"
+	}else{ result = "You Lost"
 	}
 
 	computerAction := actions[computerInput]
 	userAction := actions[userInput]
-	fmt.Println("%vUser's action was %vComputer's action was %v", result, userAction, computerAction)
+	// fmt.Println(computerAction)
+	// fmt.Println(computerInput)
+	fmt.Println(result ,"\nUser's action was",userAction,"\nComputer's action was",computerAction)
 }
