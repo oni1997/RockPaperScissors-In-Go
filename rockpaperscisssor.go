@@ -28,7 +28,7 @@ func main(){
 
 	var userInput int
 	for {
-		fmt.Print("Input")
+		fmt.Print("Choose your move: ")
 		_, err := fmt.Scan(&userInput)
 		if err == nil  && (userInput >= Rock && userInput <= Scissor){
 			break
@@ -39,19 +39,22 @@ func main(){
 	}
 	computerInput := rand.Intn(3) // rand.Intn returns a random number 
 
-	var result string
+	var result string //var always suggest to change
 	if userInput == Rock && computerInput == Scissor{
 		result = "Congratulations! You Win!"
 	}else if userInput == Paper && computerInput == Rock{
+	//elif python == else if in go
 		result = "Congratulations! You Win!"
 	}else if userInput == Scissor && computerInput == Paper{
 		result = "Congratulations! You Win!"
 	}else if userInput == computerInput{
 		result = "It's a Tie!"
-	}else{ result = "You Lost"
+	}else{ 
+		result = "You Lost"
 	}
 
 	computerAction := actions[computerInput]
+	// so this was the most interesting one := you get to declare and assign which is a short form of it by giving it a new variable
 	userAction := actions[userInput]
 	// fmt.Println(computerAction)
 	// fmt.Println(computerInput)
